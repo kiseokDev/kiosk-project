@@ -4,12 +4,18 @@ export async function generateStaticParams() {
     //     slug: category,
     // }))
     return categoryList.map((category: string) => {
-        console.log(`category:${category}`);
         return { slug: category }
     })
 }
 
-export default function Page({ params }: { params: { category: string } }) {
+async function getData(categoryName: string) {
+    return await fetch(process.env.NEXT_PUBLIC_API_URL + `/menu/${categoryName}/api`, { cache: 'no-store' }).then((res) => res.json());
+}
+
+export default async function Page({ params }: { params: { category: string } }) {
     const { category } = params;
+    const menuList = await getData(category);
+    console.log(menuList)
+    // console.log(menuList)
     return <h1>category 별 상세 페이지 | category = {category} </h1>
 }

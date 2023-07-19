@@ -1,1 +1,1 @@
-export default ["hamburger", "side_menu", "drink"];
+export default ["main", "side", "drink"];

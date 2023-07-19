@@ -11,7 +11,7 @@
 //   spicy_level: string;
 // };
 
-type Menu = {
+type MenuType = {
   //개발 test용
   category: string;
   menu_id: string;
@@ -19,5 +19,3 @@ type Menu = {
   menu_type: string;
   price: number;
 };
-
-type MenuList = Menu[];

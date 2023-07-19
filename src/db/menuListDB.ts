@@ -1,6 +1,6 @@
-const menuList: MenuList = [
+const menuList: MenuType[] = [
   {
-    category: "hamburger",
+    category: "main",
     menu_id: "1",
     menu_name: "와퍼버거",
     menu_type: "Main",
@@ -20,4 +20,13 @@ const menuList: MenuList = [
     menu_type: "side",
     price: 2000,
   },
+  {
+    category: "side",
+    menu_id: "4",
+    menu_name: "프렌치프라이(L)",
+    menu_type: "side",
+    price: 3000,
+  },
 ];
+
+export default menuList;

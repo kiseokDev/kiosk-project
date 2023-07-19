@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import categoryList from "../../../db/categoryListDB";
-// const menuAPI = new MenuListAPI();
+import { MenuDB } from "@/db/service/service";
 
 export async function GET(request: Request) {
-  return NextResponse.json({ categoryList });
+  const db = new MenuDB();
+  return NextResponse.json(db.getMenuCategory());
 }

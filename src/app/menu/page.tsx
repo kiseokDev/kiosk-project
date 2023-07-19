@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import * as React from 'react';
+import { CATEGORY_URL } from '@/lib/url'
+import { MenuCategoryAPI } from '@/lib/menu/api';
 async function getData() {
-    return await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/categoryList', { cache: 'no-store' }).then((res) => res.json());
+    const api = new MenuCategoryAPI(CATEGORY_URL);
+    return await api.getData();
 }
 
 
 export default async function Page() {
-    const { categoryList } = await getData();
-    console.log(categoryList.categoryList)
+    const categoryList = await getData();
     return <ul>
         {categoryList.map((categoryName: string) => (
             <li key={categoryName}>

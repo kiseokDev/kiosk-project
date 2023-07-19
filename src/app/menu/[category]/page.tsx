@@ -1,21 +1,22 @@
+import { MenuCategoryAPI, MenuListAPI } from "@/lib/menu/api";
+import { MENULIST_URL, CATEGORY_URL } from "@/lib/url";
+
 export async function generateStaticParams() {
     const { categoryList } = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/categoryList').then((res) => res.json());
-    // return categoryList.map((category: string) => ({
-    //     slug: category,
-    // }))
+    const API = new MenuCategoryAPI(CATEGORY_URL);// 같은지 확인
+    const data = API.getData(); // data 랑 categpry랑
     return categoryList.map((category: string) => {
         return { slug: category }
     })
 }
 
 async function getData(categoryName: string) {
-    return await fetch(process.env.NEXT_PUBLIC_API_URL + `/menu/${categoryName}/api`, { cache: 'no-store' }).then((res) => res.json());
+    const API = new MenuListAPI(MENULIST_URL.replace('@category_name', categoryName));
+    return await API.getData();
 }
 
-export default async function Page({ params }: { params: { category: string } }) {
-    const { category } = params;
+export default async function Page({ params: { category } }: { params: { category: string } }) {
     const menuList = await getData(category);
     console.log(menuList)
-    // console.log(menuList)
-    return <h1>category 별 상세 페이지 | category = {category} </h1>
+    return <h1>category 별 menuList 페이지 | category = {category} </h1>
 }

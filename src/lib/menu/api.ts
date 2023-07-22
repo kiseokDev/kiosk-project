@@ -6,9 +6,7 @@ class Api {
   }
 
   protected async getRequest<NextResponse>(): Promise<NextResponse> {
-    return await fetch(this.url, {
-      cache: "no-store",
-    }).then(res => res.json());
+    return await fetch(this.url, { cache: "no-cache" }).then(res => res.json());
   }
 }
 

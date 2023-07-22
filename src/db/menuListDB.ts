@@ -1,6 +1,6 @@
 const menuList: MenuType[] = [
   {
-    category: "main",
+    category: "burger",
     menu_id: "1",
     menu_name: "와퍼버거",
     menu_type: "Main",

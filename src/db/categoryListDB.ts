@@ -1,1 +1,3 @@
-export default ["main", "side", "drink"];
+const category = ["burger", "side", "drink"];
+
+export default category;

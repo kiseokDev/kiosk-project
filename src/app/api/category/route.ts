@@ -3,5 +3,6 @@ import { MenuDB } from "@/db/service/service";
 
 export async function GET(request: Request) {
   const db = new MenuDB();
-  return NextResponse.json(db.getMenuCategory());
+  const data = db.getMenuCategory();
+  return NextResponse.json(data);
 }

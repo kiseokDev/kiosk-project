@@ -14,8 +14,11 @@ export class MenuDB implements MenuInterface {
   getMenuList(categoryName: string): MenuType[] {
     return menuListDB.filter(menu => menu.category === categoryName);
   }
-  getMenuDetail(menuId: string): MenuType | undefined {
-    return menuListDB.find(menu => menu.menu_id === menuId);
+  getMenuDetail(menu_id: string): MenuType | undefined {
+    return menuListDB.find(menu => menu.menu_id === menu_id);
+  }
+  getAllMenuList(): MenuType[] {
+    return menuListDB;
   }
 }
 // 메뉴 클래스 기능

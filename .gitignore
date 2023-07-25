@@ -36,3 +36,9 @@ next-env.d.ts
 
 public/*.js
 public/*.map
+
+# src/app/temp 폴더를 Git으로 추적하지 않음
+/src/app/temp/
+
+# src/temp 폴더를 Git으로 추적하지 않음
+/src/temp/

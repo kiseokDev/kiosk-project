@@ -1,4 +1,6 @@
 class Api {
+  static readonly local_domain: string | undefined =
+    process.env.NEXT_PUBLIC_API_URL;
   url: string;
 
   constructor(url: string) {
@@ -6,7 +8,9 @@ class Api {
   }
 
   protected async getRequest<NextResponse>(): Promise<NextResponse> {
-    return await fetch(this.url, { cache: "no-cache" }).then(res => res.json());
+    return await fetch(Api.local_domain + this.url, { cache: "no-cache" }).then(
+      res => res.json(),
+    );
   }
 }
 

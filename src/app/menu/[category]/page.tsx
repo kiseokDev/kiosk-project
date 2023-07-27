@@ -1,5 +1,5 @@
 import { MenuCategoryAPI, MenuListAPI } from "@/lib/menu/api";
-import { MENU_LIST_URL, CATEGORY_URL } from '@/lib/menu/url'
+import { MENU_LIST_URL, CATEGORY_URL } from '@/lib/menu/url';
 import Link from "next/link";
 
 export async function generateStaticParams() {
@@ -28,5 +28,6 @@ export default async function Page({ params: { category } }: { params: { categor
                 </ul>
             </Link>
         )}
+
     </h1>
 }
